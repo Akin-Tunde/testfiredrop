@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.jpg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="fc:frame"
+      content='{ 
+        "version": "next",
+        "imageUrl": "https://fireball-rho.vercel.app/image.png",
+        "button": {
+          "title": "Enter giveaways",
+          "action": {
+            "type": "launch_frame",
+            "url": "https://fireball-rho.vercel.app",
+            "name": "Fireball☄️",
+            "splashImageUrl": "https://fireball-rho.vercel.app/logo.jpg",
+            "splashBackgroundColor": "#1f2937"
+          }
+        }
+      }'
+    />
+
+    <meta
+      name="fc:frame-default-for-spa"
+      style="display: none"
+      content='{
+        "version": "next",
+        "imageUrl": "https://fireball-rho.vercel.app/image.png",
+        "button": {
+          "title": "Enter giveaways",
+          "action": {
+            "type": "launch_frame",
+            "url": "https://fireball-rho.vercel.app",
+            "name": "Fireball☄️",
+            "splashImageUrl": "https://fireball-rho.vercel.app/logo.jpg",
+            "splashBackgroundColor": "#1f2937"
+          }
+        }
+      }'
+    />
+    <title>Fireball☄️</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

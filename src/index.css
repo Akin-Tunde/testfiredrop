@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  /* Tailwind's default is typically 16px.
+     You can set it to a smaller pixel value or a percentage.
+     For example, 14px will make everything a bit smaller. */
+  font-size: 12px;
+  /* Or, for a relative reduction: font-size: 90%; */
+}
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  background: linear-gradient(135deg, #2a004a, #4a0062);
+} */
+
+.plinko-board {
+  position: relative;
+  background: #1a1a2e;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.plinko-slot {
+  transition: background-color 0.3s;
+}
+
+.plinko-slot:hover {
+  background-color: #ff6f61;
+}
+
+.plinko-ball {
+  transition: all 0.3s ease-out;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .plinko-ball {
+    animation: bounce 0.5s ease-out;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-slow {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  } /* Adjust opacity or other properties as desired */
+}
+
+/* Define the utility class to apply the animation */
+.animate-pulse-slow {
+  animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite; /* Adjust duration (3s) and timing as needed */
+}
+
+/* Add these to your src/index.css or equivalent global stylesheet */
+
+.input-label {
+  display: block;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.25rem; /* 20px */
+  font-weight: 500;
+  color: #e5e7eb; /* Tailwind's gray-200 */
+}
+
+.input-style {
+  display: block;
+  width: 100%;
+  padding-top: 0.625rem; /* 10px */
+  padding-bottom: 0.625rem; /* 10px */
+  padding-left: 0.875rem; /* 14px */
+  padding-right: 0.875rem; /* 14px */
+  background-color: rgba(
+    31,
+    41,
+    55,
+    0.7
+  ); /* Tailwind's gray-800 with 0.7 opacity */
+  color: #ffffff; /* White text */
+  border: 1px solid #d97706; /* Tailwind's orange-600 */
+  border-radius: 0.5rem; /* 8px */
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.25rem; /* 20px */
+  text-align: center; /* Default center alignment for inputs */
+  transition-property: background-color, border-color, color, fill, stroke,
+    opacity, box-shadow, transform, filter, backdrop-filter,
+    -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.input-style::placeholder {
+  color: #6b7280; /* Tailwind's gray-500 */
+}
+
+.input-style:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0
+    var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0
+    calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+    var(--tw-shadow, 0 0 #0000);
+  --tw-ring-color: #f59e0b; /* Tailwind's yellow-500 */
+  border-color: #f59e0b; /* Tailwind's yellow-500 */
+}
+
+.input-style:hover {
+  border-color: #fbbf24; /* Tailwind's yellow-400 */
+}
+
+.input-description {
+  font-size: 0.75rem; /* 12px */
+  line-height: 1rem; /* 16px */
+  color: #d1d5db; /* Tailwind's gray-300 */
+  text-align: center;
+  margin-top: 0.25rem;
+}
