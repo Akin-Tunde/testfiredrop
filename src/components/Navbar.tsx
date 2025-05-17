@@ -36,6 +36,23 @@ const Navbar: React.FC = () => {
     autoConnectIfMiniApp();
   }, [isConnected, connect, connectors]); // Rerun if connection state or connectors change
 
+  // Add this function for notification opt-in
+  const promptNotifications = async () => {
+  try {
+    const result = await sdk.actions.addFrame();
+    console.log("Notification opt-in result:", result);
+    
+    // Check if the result has notificationDetails without checking 'added' property
+    if (result && result.notificationDetails) {
+      console.log("User enabled notifications successfully");
+      // You could show a success toast here
+    }
+  } catch (error) {
+    console.error("Error enabling notifications:", error);
+  }
+};
+
+
   const isActive = (path: string) => location.pathname === path;
 
   return (
@@ -134,8 +151,14 @@ const Navbar: React.FC = () => {
           <div className="flex items-center">
             {isConnected ? (
               <>
-                {/* Desktop View: Address + Separate Disconnect Button */}
+                {/* Desktop View: Address + Notification + Disconnect Buttons */}
                 <div className="hidden md:flex items-center space-x-2">
+                  <button
+                    onClick={promptNotifications}
+                    className="bg-purple-500 hover:bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-medium transition-colors duration-200"
+                  >
+                    Enable Notifications
+                  </button>
                   <span className="bg-gray-700 px-3 py-1 rounded-full text-sm font-medium text-gray-200">
                     {`${address?.slice(0, 6)}...${address?.slice(-4)}`}
                   </span>
@@ -147,14 +170,19 @@ const Navbar: React.FC = () => {
                   </button>
                 </div>
 
-                {/* Mobile View: Single Button with Address, acts as Disconnect */}
-                <div className="md:hidden">
+                {/* Mobile View: Add notification button */}
+                <div className="md:hidden flex space-x-2">
+                  <button
+                    onClick={promptNotifications}
+                    className="bg-purple-500 hover:bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-medium transition-colors duration-200"
+                  >
+                    🔔
+                  </button>
                   <button
                     onClick={() => disconnect()}
                     className="bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 rounded-full text-sm font-medium transition-colors duration-200 whitespace-nowrap"
                   >
-                    {`${address?.slice(0, 4)}...${address?.slice(-3)}`}{" "}
-                    {/* Shorter for mobile button */}
+                    {`${address?.slice(0, 4)}...${address?.slice(-3)}`}
                   </button>
                 </div>
               </>
