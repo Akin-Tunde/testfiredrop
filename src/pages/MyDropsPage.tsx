@@ -8,6 +8,7 @@ import { getContractConfig } from "../utils/contract";
 import { sdk } from "@farcaster/frame-sdk";
 import { DropInfo, RewardType } from "../types/global"; // Ensure DropInfo includes all new fields
 import { ERC20_MINIMAL_ABI } from "../utils/erc20";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 // Helper function to get token decimals (can be moved to a shared utility)
 async function getTokenDecimals(tokenAddress: `0x${string}`): Promise<number> {
@@ -321,11 +322,6 @@ const MyDropsPage: React.FC = () => {
     setCurrentPage(1);
   }, [filter, drops, address]);
 
-  // ... (Rest of the JSX for loading, error, and display - remains the same as your provided code)
-  // The key changes are in the data fetching and filtering logic above.
-  // For brevity, I'm omitting the identical JSX here but it should be included in the final file.
-  // Ensure DropList component correctly displays the new DropInfo fields.
-
   if (loading && address) {
     return (
       <div className="min-h-screen bg-gray-900 p-6 flex justify-center items-center">
@@ -487,12 +483,13 @@ const MyDropsPage: React.FC = () => {
                     ? "You haven't joined any drops yet."
                     : "You are not associated with any drops yet."}
                 </p>
-                <button
-                  onClick={() => (window.location.href = "/create")}
-                  className="mt-4 py-2 px-4 bg-orange-600 hover:bg-orange-700 text-white font-medium rounded-lg transition-colors duration-200 shadow-lg"
+                {/* Fixed: Changed from window.location.href to Link component */}
+                <Link
+                  to="/create"
+                  className="mt-4 py-2 px-4 bg-orange-600 hover:bg-orange-700 text-white font-medium rounded-lg transition-colors duration-200 shadow-lg inline-block"
                 >
                   Create New Drop
-                </button>
+                </Link>
               </div>
             ) : (
               <div className="bg-gradient-to-br from-red-800 via-orange-700 to-yellow-600 p-8 rounded-2xl shadow-2xl border border-orange-500">
