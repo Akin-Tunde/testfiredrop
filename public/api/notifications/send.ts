@@ -1,22 +1,18 @@
 // public/api/notifications/send.ts
-import { NextRequest, NextResponse } from "next/server";
+import { Request, Response } from 'express';
 
-export const config = {
-  runtime: "edge",
-};
-
-export default async function handler(req: NextRequest) {
+export default async function handler(req: Request, res: Response) {
   if (req.method !== "POST") {
-    return NextResponse.json({ error: "Method not allowed" }, { status: 405 });
+    return res.status(405).json({ error: "Method not allowed" });
   }
 
   try {
-    const { targetFids, notification } = await req.json();
+    const { targetFids, notification } = req.body;
 
     // Get the Neynar API key from environment variables
-    const apiKey = process.env.NEYNAR_API_KEY;
+    const apiKey = import.meta.env.VITE_NEYNAR_API_KEY;
     if (!apiKey) {
-      throw new Error("NEYNAR_API_KEY environment variable is not set");
+      throw new Error("VITE_NEYNAR_API_KEY environment variable is not set");
     }
 
     // Prepare the request to Neynar API
@@ -31,7 +27,7 @@ export default async function handler(req: NextRequest) {
         body: JSON.stringify({
           target_fids: targetFids,
           notification,
-        }),
+        } ),
       }
     );
 
@@ -45,12 +41,9 @@ export default async function handler(req: NextRequest) {
     }
 
     const data = await neynarResponse.json();
-    return NextResponse.json(data);
+    return res.json(data);
   } catch (error) {
     console.error("Error sending notification:", error);
-    return NextResponse.json(
-      { error: "Failed to send notification" },
-      { status: 500 }
-    );
+    return res.status(500).json({ error: "Failed to send notification" });
   }
 }

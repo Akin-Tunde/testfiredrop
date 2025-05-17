@@ -1,6 +1,4 @@
 // src/utils/notifications.ts
-import { toast } from "react-toastify";
-
 interface NotificationPayload {
   title: string;
   body: string;
