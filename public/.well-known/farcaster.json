@@ -1,18 +1,18 @@
 {
   "accountAssociation": {
-    "header": "eyJmaWQiOjIzOTM5NiwidHlwZSI6ImN1c3RvZHkiLCJrZXkiOiIweDRENEU1MjIzODRkNkYxMDkwYkZENEM0NTI3YTdkNTJERmQyMGJDYTMifQ",
-    "payload": "eyJkb21haW4iOiJmaXJlYmFsbC1yaG8udmVyY2VsLmFwcCJ9",
-    "signature": "MHgxYjNmZDRjYzU1ZTVjYjc1ZjNjZTdhMmJkOTU0MTgxYzY2MmNjMWI0NDFjNmEzMTRhZWFhYzhjYTc4OTI0NDYxMmQ0ZjQzZmZlNmU0NWMxNDg1MzMwZDEzMjc3MTIyNTI5NzE4MGEyYTAxZWVlZDc0YTJiOGYyODA5N2UxZmJiNDFi"
+    "header": "eyJmaWQiOjEwNDI1MjIsInR5cGUiOiJjdXN0b2R5Iiwia2V5IjoiMHhjRjlCNjczZTM3NmM2ZGQwMDliNDNlQzc2MTM5YUVhYmRBMDJCNjRlIn0",
+    "payload": "eyJkb21haW4iOiJ0ZXN0LWZpcmVkcm9wLm5ldGxpZnkuYXBwIn0",
+    "signature": "MHg1NzIwZDk3Yzc4MDJkNmVhZDI2OWY3YjI0MWY4N2E4NGI0MWU0NWQ4NGMxMjU4NDdiMGMwMWNhNjljYzMxZTQxMmYyZDhjZmUxMDhlZTkwZDNmNzg2ODI3NGIwMGY5MDA0NjlmNmE0MDBjODljODlkOTUzMDgzZjgwYTAxMzkwZTFi"
   },
   "frame": {
     "version": "1",
-    "name": "Fireball☄️",
-    "iconUrl": "https://fireball-rho.vercel.app/icon.jpg",
-    "homeUrl": "https://fireball-rho.vercel.app",
-    "imageUrl": "https://fireball-rho.vercel.app/image.png",
+    "name": "Example Frame",
+    "iconUrl": "https://test-firedrop.netlify.app/icon.png",
+    "homeUrl": "https://test-firedrop.netlify.app",
+    "imageUrl": "https://test-firedrop.netlify.app/image.png",
     "buttonTitle": "Check this out",
-    "splashImageUrl": "https://fireball-rho.vercel.app/logo.jpg",
-    "splashBackgroundColor": "#1f2937",
-    "webhookUrl": "https://api.neynar.com/f/app/158192e8-1170-4a2d-90ec-21d453883a55/event"
+    "splashImageUrl": "https://test-firedrop.netlify.app/splash.png",
+    "splashBackgroundColor": "#eeccff",
+    "webhookUrl": "https://test-firedrop.netlify.app/api/webhook"
   }
 }
